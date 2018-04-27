@@ -1,101 +1,74 @@
 package algorithms;
 
 import functions.SigmoidFunction;
-import org.junit.Test;
+
+import java.util.Arrays;
 
 public class BPNN {
     // hidden layer weight
-    private double w13;
-    private double w23;
-    private double w14;
-    private double w24;
+    private static double w13 = 0.5;
+    private static double w23 = 0.4;
+    private static double w14 = 0.9;
+    private static double w24 = 1.0;
     // output layer weight
-    private double w35;
-    private double w45;
-    // hidden layer threshold
-    private double threshold3;
-    private double threshold4;
-    // output layer thresholdo
-    private double threshold5;
-    private double rateOfEvalution;
-    private int count = 15000;
+    private static double w35 = -1.2;
+    private static double w45 = 1.1;
+    private static double rateOfEvalution = 0.7;
+    private static int count = 15000;
+    final static double inputs[][] = { {1, 1}, {1, 0}, {0, 1}, {0, 0}};
+    final static double expectedOutputs[] = {0, 1, 1, 0};
 
-    final double inputs[][] = { {1, 1}, {1, 0}, {0, 1}, {0, 0}};
-    final double expectedOutputs[] = {0, 1, 1, 0};
-
-    @Test
-    public void training() {
-        this.init();
+    public static void main(String[] args) {
+        NeuralNetwork network = init(rateOfEvalution);
         while (count > 0) {
-            for (int i = 0; i < inputs.length; i++) {
-                trainingOneTIme(inputs[i][0], inputs[i][1], expectedOutputs[i]);
-            }
+            Training.train(network, inputs, expectedOutputs);
             count--;
         }
-        System.out.println("Trained module:");
-        System.out.println("w13: " + w13 + "\n"
-                + "w14: " + w14 + "\n"
-                + "w23: " + w23 + "\n"
-                + "w24: " + w24 + "\n"
-                + "w35: " + w35 + "\n"
-                + "w45: " + w45 + "\n");
-        System.out.println("==========" + this.value(1, 1));
-        System.out.println("==========" + this.value(0, 0));
-        System.out.println("==========" + this.value(0, 1));
-        System.out.println("==========" + this.value(1, 0));
+
+        for (int j = 0; j < 2; j++) {
+            network.getInput().getNeurons().get(j).setOutput(inputs[0][j]);
+        }
+        System.out.println(network.getOutput().getNeurons().get(0).getOutput());
+        for (int j = 0; j < 2; j++) {
+            network.getInput().getNeurons().get(j).setOutput(inputs[1][j]);
+        }
+        System.out.println(network.getOutput().getNeurons().get(0).getOutput());
+        for (int j = 0; j < 2; j++) {
+            network.getInput().getNeurons().get(j).setOutput(inputs[2][j]);
+        }
+        System.out.println(network.getOutput().getNeurons().get(0).getOutput());
+        for (int j = 0; j < 2; j++) {
+            network.getInput().getNeurons().get(j).setOutput(inputs[3][j]);
+        }
+        System.out.println(network.getOutput().getNeurons().get(0).getOutput());
     }
 
-    private void trainingOneTIme(double x1, double x2, double expectResult) {
-        double y3 = SigmoidFunction.value((x1 * this.w13 + x2 * this.w23) -
-                threshold3);
-        double y4 = SigmoidFunction.value((x1 * this.w14 + x2 * this.w24) -
-                threshold4);
+    public static NeuralNetwork init(double rate) {
+        // input layer
+        Neuron input1 = new Neuron(null, null, 0, null, 1);
+        Neuron input2 = new Neuron(null, null, 0, null, 1);
+        Neuron out = new Neuron();
+        Neuron hidder1 =
+                new Neuron(Arrays.asList(new Connection(w13, input1), new Connection(w23, input2)), Arrays.asList(new Connection(w35, out)), 0.8,
+                        new SigmoidFunction(), 0);
+        Neuron hidder2 =
+                new Neuron(Arrays.asList(new Connection(w14, input1), new Connection(w24, input2)), Arrays.asList(new Connection(w45, out)), -0.1,
+                        new SigmoidFunction(), 0);
 
-        double y5 = SigmoidFunction.value((y3 * this.w35 + y4 * this.w45) - threshold5);
-        // calculate offset
-        double offset = expectResult - y5;
-        // calculate output layer delta weight
-        double derivative5 = y5 * (1 - y5) * offset;
-        double deltaW3 = rateOfEvalution * y3 * derivative5;
-        double deltaW4 = rateOfEvalution * y4 * derivative5;
-        double deltaT5 = rateOfEvalution * (-1) * derivative5;
-        w35 = w35 + deltaW3;
-        w45 = w45 + deltaW4;
-        threshold5 = threshold5 + deltaT5;
-        // calculate hidden layer delta weight
-        double derivative3 = y3 * (1 - y3) * derivative5 * w35;
-        double derivative4 = y4 * (1 - y4) * derivative5 * w45;
-        double deltaW13 = rateOfEvalution * x1 * derivative3;
-        double deltaW14 = rateOfEvalution * x1 * derivative4;
-        double deltaW23 = rateOfEvalution * x2 * derivative3;
-        double deltaW24 = rateOfEvalution * x2 * derivative4;
-        double deltaT3 = rateOfEvalution * (-1) * derivative3;
-        double deltaT4 = rateOfEvalution * (-1) * derivative4;
+        input1.setOutConnections(Arrays.asList(new Connection(w13, hidder1), new Connection(w23, hidder2)));
+        input2.setOutConnections(Arrays.asList(new Connection(w14, hidder1), new Connection(w24, hidder2)));
 
-        w13 = w13 + deltaW13;
-        w14 = w14 + deltaW14;
-        w23 = w23 + deltaW23;
-        w24 = w24 + deltaW24;
-        threshold3 = threshold3 + deltaT3;
-        threshold4 = threshold4 + deltaT4;
-    }
+        out.setInConnections(Arrays.asList(new Connection(w35, hidder1), new Connection(w45, hidder2)));
+        out.setFunction(new SigmoidFunction());
+        out.setBias(0.3);
 
-    public double value(double v1, double v2) {
-        double yTmp3 = SigmoidFunction.value((v1 * w13 + v2 * w23) - threshold3);
-        double yTmp4 = SigmoidFunction.value((v1 * w14 + v2 * w24) - threshold4);
-        return SigmoidFunction.value(yTmp3 * w35 + yTmp4 * w45 - threshold5);
-    }
+        Layer layer = new Layer(Arrays.asList(input1, input2));
+        // hidden layer
+        Layer hiddenLayer = new Layer(Arrays.asList(hidder1, hidder2));
+        // output layer
+        Layer outputLayer = new Layer(Arrays.asList(out));
 
-    private void init() {
-        w13 = 1.8f;
-        w23 = 2.4f;
-        w14 = 0.6f;
-        w24 = 1.1f;
-        w35 = -1.6f;
-        w45 = 1.8f;
-        threshold3 = 0.8f;
-        threshold4 = 0.1f;
-        threshold5 = 0.3f;
-        rateOfEvalution = 0.7f;
+        NeuralNetwork network = new NeuralNetwork(layer, Arrays.asList(hiddenLayer), outputLayer, rate);
+        return network;
     }
 }
