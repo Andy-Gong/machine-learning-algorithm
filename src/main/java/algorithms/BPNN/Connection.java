@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.BPNN;
 
 public class Connection {
     private double weight;

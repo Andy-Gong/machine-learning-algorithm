@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.BPNN;
 
 import functions.Function;
 
