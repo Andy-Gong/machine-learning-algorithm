@@ -14,7 +14,7 @@ public class BPNN {
     private static double w35 = -1.2;
     private static double w45 = 1.1;
     private static double rateOfEvalution = 0.7;
-    private static int count = 15000;
+    private static int count = 10000;
     final static double inputs[][] = { {1, 1}, {1, 0}, {0, 1}, {0, 0}};
     final static double expectedOutputs[] = {0, 1, 1, 0};
 
