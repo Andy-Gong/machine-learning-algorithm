@@ -8,6 +8,7 @@ It includes a lot of examples of machine learning algorithms during my learning 
 3. In the training process, x1 and x2 have 4 training samples, such as [1,1], [1,0], [0,1], [0,0]. Training count is 1000 and rate is 0.7.
 4. Training results
    . weights
+   
    | Weight     | value    |
    | --------|---------|
    | w13  | 2.905025894507316   |
@@ -18,6 +19,7 @@ It includes a lot of examples of machine learning algorithms during my learning 
    | w45 |	12.860965658654974 |
    
    . output
+   
    | Input(x1, x2)| Expexted result | Actual result |
    | -------------|-----------------|---------------|
    | [1,1]  | 0   | 0.02074452285884211    |
