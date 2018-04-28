@@ -6,7 +6,17 @@ It includes a lot of examples of machine learning algorithms during my learning 
 2. In the example, NeuralNetwork includes three layers: input layer, hidden layer and output layer.
    ![Alt text](https://github.com/Andy-Gong/machine-learning-algorithm/blob/master/src/main/resource/BPNN/BPNN.jpg)
 3. In the training process, x1 and x2 have 4 training samples, such as [1,1], [1,0], [0,1], [0,0]. Training count is 1000 and rate is 0.7.
+   Initial weights as below. FYI you can generate initial weights randomly.
+   | Weight     | value    |
+   | --------|---------|
+   | w13  | 0.5   |
+   | w14 | 0.4 |
+   | w23 | 0.9 |
+   | w24 | 1.0 |
+   | w35 | -1.2 |
+   | w45 |	1.1 |
 4. Training results
+   
    . weights
    
    | Weight     | value    |
