@@ -7,6 +7,7 @@ It includes a lot of examples of machine learning algorithms during my learning 
    ![Alt text](https://github.com/Andy-Gong/machine-learning-algorithm/blob/master/src/main/resource/BPNN/BPNN.jpg)
 3. In the training process, x1 and x2 have 4 training samples, such as [1,1], [1,0], [0,1], [0,0]. Training count is 1000 and rate is 0.7.
    Initial weights as below. FYI you can generate initial weights randomly.
+   
    | Weight     | value    |
    | --------|---------|
    | w13  | 0.5   |
