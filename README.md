@@ -37,4 +37,7 @@ It includes a lot of examples of machine learning algorithms during my learning 
    | [1,0] | 1 | 0.9808479500651514   |
    | [0,1] | 1 | 0.9808201576391186   |
    | [0,0] | 0 | 0.019956923563609858    |
+   
+### Hopfield NeuralNetwork
+
 
