@@ -1,6 +1,12 @@
 package algorithms.BPNN;
 
-import functions.SigmoidFunction;
+import algorithms.Train;
+import commons.Matrix;
+import commons.functions.impl.SigmoidFunction;
+import module.Connection;
+import module.Layer;
+import module.NeuralNetwork;
+import module.Neuron;
 
 import java.util.Arrays;
 
@@ -15,13 +21,16 @@ public class BPNN {
     private static double w45 = 1.1;
     private static double rateOfEvalution = 0.7;
     private static int count = 10000;
-    final static double inputs[][] = { {1, 1}, {1, 0}, {0, 1}, {0, 0}};
-    final static double expectedOutputs[] = {0, 1, 1, 0};
+    final static int inputs[][] = { {1, 1}, {1, 0}, {0, 1}, {0, 0}};
+    final static int expectedOutputs[] = {0, 1, 1, 0};
 
     public static void main(String[] args) {
         NeuralNetwork network = init(rateOfEvalution);
+        Train train = new BPNNTraining();
+        Matrix input = new Matrix(inputs);
+        Matrix output = new Matrix(expectedOutputs);
         while (count > 0) {
-            Training.train(network, inputs, expectedOutputs);
+            train.train(network, input, output);
             count--;
         }
 

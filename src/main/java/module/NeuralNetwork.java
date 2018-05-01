@@ -1,4 +1,4 @@
-package algorithms.BPNN;
+package module;
 
 import java.util.List;
 

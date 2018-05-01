@@ -1,4 +1,5 @@
-package algorithms.BPNN;
+package module;
+
 
 public class Connection {
     private double weight;

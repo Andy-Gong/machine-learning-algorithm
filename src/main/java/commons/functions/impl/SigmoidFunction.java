@@ -1,4 +1,7 @@
-package functions;
+package commons.functions.impl;
+
+import commons.functions.Function;
+
 
 public class SigmoidFunction implements Function {
     public double value(double x) {

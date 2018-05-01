@@ -1,20 +1,31 @@
 package algorithms.BPNN;
 
+import commons.Matrix;
 
-public class Training {
+import algorithms.Train;
+import module.NeuralNetwork;
 
-    public static void train(NeuralNetwork network, double inputs[][], double expectedOutputs[]) {
-        for (int i = 0; i < inputs.length; i++) {
+
+public class BPNNTraining implements Train {
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see algorithms.BPNN.Train#train(module.NeuralNetwork, double[][], double[])
+     */
+    @Override
+    public Matrix train(NeuralNetwork network, Matrix inputs, Matrix output) {
+        for (int i = 0; i < inputs.getMatrix().length; i++) {
             for (int j = 0; j < network.getInput().getNeurons().size(); j++) {
-                network.getInput().getNeurons().get(j).setOutput(inputs[i][j]);
+                network.getInput().getNeurons().get(j).setOutput(inputs.getMatrix()[i][j]);
             }
-            double output = network.getOutput().getNeurons().get(0).getOutput();
+            double outputValue = network.getOutput().getNeurons().get(0).getOutput();
             // calculate offset
-            double offset = expectedOutputs[i] - output;
+            double offset = output.getMatrix()[i][0] - outputValue;
             // reset output layer weight
             network.getOutput().getNeurons().forEach(
                     neuron -> {
-                        double derivative = output * (1 - output) * offset;
+                        double derivative = outputValue * (1 - outputValue) * offset;
                         neuron.setDerivative(derivative);
                         neuron.getInConnections().forEach(connection -> {
                             connection.setWeight(connection.getWeight()
@@ -43,5 +54,6 @@ public class Training {
                                 });
                     });
         }
+        return null;
     }
 }

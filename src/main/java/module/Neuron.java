@@ -1,6 +1,6 @@
-package algorithms.BPNN;
+package module;
 
-import functions.Function;
+import commons.functions.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,13 +38,13 @@ public class Neuron {
     }
 
     public double getOutput() {
-        if (inConnections == null || inConnections.isEmpty())
+        if (inConnections == null || inConnections.isEmpty()) {
             return output;
-        output =
-                function.value(inConnections.stream()
-                        .mapToDouble(connection -> Double.valueOf(connection.getWeight() * connection.getConnected().getOutput())).sum()
-                        - this.bias);
-        return output;
+        } else {
+            return function.value(inConnections.stream()
+                    .mapToDouble(connection -> Double.valueOf(connection.getWeight() * connection.getConnected().getOutput())).sum()
+                    - this.bias);
+        }
     }
 
     public double getBias() {
