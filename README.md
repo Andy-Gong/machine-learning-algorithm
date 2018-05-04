@@ -49,31 +49,35 @@ It includes a lot of examples of machine learning algorithms during my learning 
 
 In the example, W is 3X6, 4 memory points,
 Memory points input of Neural network:
+```
+1	1	-1	-1	
+1	1	-1	-1	
+1	-1	-1	1	
+1	-1	-1	1	
+1	1	-1	-1	
+1	1	-1	-1
 
-|1	|1	|-1 |-1|
-|1	|1	|-1|	-1|
-|1	|-1	|-1	|1|
-|1	|-1	|-1	|1|
-|1	|1	|-1	|-1|
-|1	|1	|-1	|-1|
-
+```
 Memory points output of Neural network:
-
+```
 1	1	-1	-1
 1	-1	-1	1
 1	1	-1	-1
 
+```
 Weights of Neural network:
-
+```
 4	4	0	0	4	4
 0	0	4	4	0	0
 4	4	0	0	4	4
-
+```
 Weights transposition of Neural network:
+```
 4	0	4
 4	0	4
 0	4	0
 0	4	0
 4	0	4
 4	0	4
+```
 
