@@ -38,6 +38,36 @@ It includes a lot of examples of machine learning algorithms during my learning 
    | [0,1] | 1 | 0.9808201576391186   |
    | [0,0] | 0 | 0.019956923563609858    |
    
-### Hopfield NeuralNetwork
+#### Hopfield NeuralNetwork
+#### Bidirectional Associative Memory NeuralNetwork
+A bidirectional associative memory stores a set of pattern associations by summing bipolar correlation matrices (an n by m outer product matrix for each pattern to be stored).
+The architecture of the net consists of two layers of neurons, connected by directional weighted connection paths.
+The net iterates, sending signals back and forth between the two layers until all neurons reach equilibrium (i.e., until each neuron's activation remains constant for several steps). 
+Because the weights are bidirectional and the algorithm alternates between updating the activations for each layer, we shall refer to the layers as the X-layer and the Y-layer (rather than the input and output layers).
+![Alt text](https://github.com/Andy-Gong/machine-learning-algorithm/blob/master/src/main/resource/BAMNN/BAMNN.jpg)
 
+In the example, W is 3X6, 4 memory points,
+Memory points input of Neural network:
+1	1	-1	-1
+1	1	-1	-1
+1	-1	-1	1
+1	-1	-1	1
+1	1	-1	-1
+1	1	-1	-1
+Memory points output of Neural network:
+1	1	-1	-1
+1	-1	-1	1
+1	1	-1	-1
+Weights of Neural network:
+4	4	0	0	4	4
+0	0	4	4	0	0
+4	4	0	0	4	4
+
+Weights transposition of Neural network:
+4	0	4
+4	0	4
+0	4	0
+0	4	0
+4	0	4
+4	0	4
 
