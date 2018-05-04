@@ -49,6 +49,14 @@ It includes a lot of examples of machine learning algorithms during my learning 
 ![Alt text](https://github.com/Andy-Gong/machine-learning-algorithm/blob/master/src/main/resource/BAMNN/BAMNN.png)
 
 ##### Training steps
+1. Initialize weights to store a set of memory points;
+       W = Y*X†, X† is transposition of X
+2. For each testing input, do step 3-5;
+3. Present input value: Xi to X layer, then caculate Y,
+      Yi = sign(WXi)
+4. Present input value: Yi to Y layer, then caculate X(i+1),
+      X(i+1) = sign(W†Yi),W† is transposition of W
+5. When X(i+1) = Xi, output of current input is stable.
 
 ##### Example
 In the example, W is 3X6, 4 memory points,
