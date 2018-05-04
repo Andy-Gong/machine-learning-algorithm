@@ -46,7 +46,7 @@ It includes a lot of examples of machine learning algorithms during my learning 
 3. The net iterates, sending signals back and forth between the two layers until all neurons reach equilibrium (i.e., until each neuron's activation remains constant for several steps). 
 4. Because the weights are bidirectional and the algorithm alternates between updating the activations for each layer, we shall refer to the layers as the X-layer and the Y-layer (rather than the input and output layers).
 
-![Alt text](https://github.com/Andy-Gong/machine-learning-algorithm/blob/master/src/main/resource/BAMNN/BAMNN.png){:height="700px" width="400px"}
+![Alt text](https://github.com/Andy-Gong/machine-learning-algorithm/blob/master/src/main/resource/BAMNN/BAMNN.png){:height="200px" width="100px"}
 
 ##### Training steps
 1. Initialize weights to store a set of memory points;
