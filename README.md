@@ -44,7 +44,8 @@ A bidirectional associative memory stores a set of pattern associations by summi
 The architecture of the net consists of two layers of neurons, connected by directional weighted connection paths.
 The net iterates, sending signals back and forth between the two layers until all neurons reach equilibrium (i.e., until each neuron's activation remains constant for several steps). 
 Because the weights are bidirectional and the algorithm alternates between updating the activations for each layer, we shall refer to the layers as the X-layer and the Y-layer (rather than the input and output layers).
-![Alt text](https://github.com/Andy-Gong/machine-learning-algorithm/blob/master/src/main/resource/BAMNN/BAMNN.jpg)
+
+![Alt text](https://github.com/Andy-Gong/machine-learning-algorithm/blob/master/src/main/resource/BAMNN/BAMNN.png)
 
 In the example, W is 3X6, 4 memory points,
 Memory points input of Neural network:
