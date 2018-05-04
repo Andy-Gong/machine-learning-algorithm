@@ -26,6 +26,10 @@ public class BAMNN {
     public static void main(String[] args) {
         Matrix inputX = new Matrix(new int[][] { {1, 1, 1, 1, 1, 1}, {1, 1, -1, -1, 1, 1}, {-1, -1, -1, -1, -1, -1}, {-1, -1, 1, 1, -1, -1}});
         Matrix outputY = new Matrix(new int[][] { {1, 1, 1}, {1, -1, 1}, {-1, -1, -1}, {-1, 1, -1}});
+        System.out.println("\nMemory points input of Neural network: ");
+        inputX.transpose().output();
+        System.out.println("\nMemory points output of Neural network: ");
+        outputY.transpose().output();
         Matrix weight = new Matrix(3, 6);
         for (int i = 0; i < 4; i++) {
             Matrix inputTmp = new Matrix(1, 6);
