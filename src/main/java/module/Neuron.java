@@ -9,7 +9,7 @@ public class Neuron {
     private List<Connection> inConnections = new ArrayList<Connection>();
     private List<Connection> outConnections = new ArrayList<Connection>();
     private double output;
-    private double bias = -1;
+    private double bias = 0;
     private Function function;
     private double derivative;
 

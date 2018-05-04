@@ -62,10 +62,6 @@ public class HopfieldNN {
         input1.setOutput(1);
         input2.setOutput(1);
         input3.setOutput(1);
-        input0.setBias(0);
-        input1.setBias(0);
-        input2.setBias(0);
-        input3.setBias(0);
         Assert.assertEquals(1.0f, n0.getOutput(), 0);
         Assert.assertEquals(1.0f, n1.getOutput(), 0);
         Assert.assertEquals(1.0f, n2.getOutput(), 0);
@@ -75,10 +71,6 @@ public class HopfieldNN {
         input1.setOutput(-1);
         input2.setOutput(-1);
         input3.setOutput(-1);
-        input0.setBias(0);
-        input1.setBias(0);
-        input2.setBias(0);
-        input3.setBias(0);
         Assert.assertEquals(-1.0f, n0.getOutput(), 0);
         Assert.assertEquals(-1.0f, n1.getOutput(), 0);
         Assert.assertEquals(-1.0f, n2.getOutput(), 0);
