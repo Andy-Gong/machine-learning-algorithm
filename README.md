@@ -66,7 +66,7 @@ It includes a lot of examples of machine learning algorithms during my learning 
 
 ##### Example
 In the example, W is 3 X 6, initialize 4 memory points,
-. Memory points input of Neural network:
+* Memory points input of Neural network:
 ```
 1	1	-1	-1	
 1	1	-1	-1	
@@ -76,20 +76,20 @@ In the example, W is 3 X 6, initialize 4 memory points,
 1	1	-1	-1
 
 ```
-. Memory points output of Neural network:
+* Memory points output of Neural network:
 ```
 1	1	-1	-1
 1	-1	-1	1
 1	1	-1	-1
 
 ```
-. Weights of Neural network:
+* Weights of Neural network:
 ```
 4	4	0	0	4	4
 0	0	4	4	0	0
 4	4	0	0	4	4
 ```
-. Weights transposition of Neural network:
+* Weights transposition of Neural network:
 ```
 4	0	4
 4	0	4
@@ -98,7 +98,7 @@ In the example, W is 3 X 6, initialize 4 memory points,
 4	0	4
 4	0	4
 ```
-. Testing input of Neural network:
+* Testing input of Neural network:
 ```
 1	1	-1	-1	1	1	1	0	0	-1	
 1	1	-1	-1	1	1	-1	0	0	-1	
@@ -107,7 +107,7 @@ In the example, W is 3 X 6, initialize 4 memory points,
 1	1	-1	-1	1	-1	1	0	-1	1	
 1	1	-1	-1	-1	-1	-1	0	1	1	
 ```
-. Testing output of Neural network:
+* Testing output of Neural network:
 ```
 1	1	-1	-1	1	0	0	0	0	0	
 1	-1	1	-1	1	1	0	0	1	-1	
