@@ -46,7 +46,7 @@ It includes a lot of examples of machine learning algorithms during my learning 
 3. The net iterates, sending signals back and forth between the two layers until all neurons reach equilibrium (i.e., until each neuron's activation remains constant for several steps). 
 4. Because the weights are bidirectional and the algorithm alternates between updating the activations for each layer, we shall refer to the layers as the X-layer and the Y-layer (rather than the input and output layers).
 
-![Alt text](https://github.com/Andy-Gong/machine-learning-algorithm/blob/master/src/main/resource/BAMNN/BAMNN.png){:height="200px" width="100px"}
+![Alt text](https://github.com/Andy-Gong/machine-learning-algorithm/blob/master/src/main/resource/BAMNN/BAMNN.png)
 
 ##### Training steps
 1. Initialize weights to store a set of memory points;
@@ -65,8 +65,8 @@ It includes a lot of examples of machine learning algorithms during my learning 
 5. When X(i+1) = Xi, output of current input is stable.
 
 ##### Example
-In the example, W is 3X6, 4 memory points,
-Memory points input of Neural network:
+In the example, W is 3 X 6, initialize 4 memory points,
+. Memory points input of Neural network:
 ```
 1	1	-1	-1	
 1	1	-1	-1	
@@ -76,20 +76,20 @@ Memory points input of Neural network:
 1	1	-1	-1
 
 ```
-Memory points output of Neural network:
+. Memory points output of Neural network:
 ```
 1	1	-1	-1
 1	-1	-1	1
 1	1	-1	-1
 
 ```
-Weights of Neural network:
+. Weights of Neural network:
 ```
 4	4	0	0	4	4
 0	0	4	4	0	0
 4	4	0	0	4	4
 ```
-Weights transposition of Neural network:
+. Weights transposition of Neural network:
 ```
 4	0	4
 4	0	4
@@ -98,4 +98,18 @@ Weights transposition of Neural network:
 4	0	4
 4	0	4
 ```
-
+. Testing input of Neural network:
+```
+1	1	-1	-1	1	1	1	0	0	-1	
+1	1	-1	-1	1	1	-1	0	0	-1	
+1	-1	1	-1	1	1	1	0	1	-1	
+1	-1	1	-1	1	1	-1	0	1	-1	
+1	1	-1	-1	1	-1	1	0	-1	1	
+1	1	-1	-1	-1	-1	-1	0	1	1	
+```
+. Testing output of Neural network:
+```
+1	1	-1	-1	1	0	0	0	0	0	
+1	-1	1	-1	1	1	0	0	1	-1	
+1	1	-1	-1	1	0	0	0	0	0
+```
