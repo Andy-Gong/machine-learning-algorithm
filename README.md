@@ -40,6 +40,7 @@ It includes a lot of examples of machine learning algorithms during my learning 
    
 #### Hopfield NeuralNetwork
 #### Bidirectional Associative Memory NeuralNetwork
+##### Summary
 1. A bidirectional associative memory stores a set of pattern associations by summing bipolar correlation matrices (an n by m outer product matrix for each pattern to be stored).
 2. The architecture of the net consists of two layers of neurons, connected by directional weighted connection paths.
 3. The net iterates, sending signals back and forth between the two layers until all neurons reach equilibrium (i.e., until each neuron's activation remains constant for several steps). 
@@ -47,6 +48,9 @@ It includes a lot of examples of machine learning algorithms during my learning 
 
 ![Alt text](https://github.com/Andy-Gong/machine-learning-algorithm/blob/master/src/main/resource/BAMNN/BAMNN.png)
 
+##### Training steps
+
+##### Example
 In the example, W is 3X6, 4 memory points,
 Memory points input of Neural network:
 ```
