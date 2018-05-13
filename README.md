@@ -6,3 +6,4 @@ It includes a lot of examples of machine learning algorithms during my learning 
    
 #### Hopfield NeuralNetwork
 #### Bidirectional Associative Memory NeuralNetwork
+#### Hebbian learning NeuralNetwork
