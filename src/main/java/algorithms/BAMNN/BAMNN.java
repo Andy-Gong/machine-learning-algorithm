@@ -24,8 +24,8 @@ import java.util.Arrays;
 public class BAMNN {
 
     public static void main(String[] args) {
-        Matrix inputX = new Matrix(new int[][] { {1, 1, 1, 1, 1, 1}, {1, 1, -1, -1, 1, 1}, {-1, -1, -1, -1, -1, -1}, {-1, -1, 1, 1, -1, -1}});
-        Matrix outputY = new Matrix(new int[][] { {1, 1, 1}, {1, -1, 1}, {-1, -1, -1}, {-1, 1, -1}});
+        Matrix inputX = new Matrix(new double[][] { {1, 1, 1, 1, 1, 1}, {1, 1, -1, -1, 1, 1}, {-1, -1, -1, -1, -1, -1}, {-1, -1, 1, 1, -1, -1}});
+        Matrix outputY = new Matrix(new double[][] { {1, 1, 1}, {1, -1, 1}, {-1, -1, -1}, {-1, 1, -1}});
         System.out.println("\nMemory points input of Neural network: ");
         inputX.transpose().output();
         System.out.println("\nMemory points output of Neural network: ");
@@ -48,7 +48,7 @@ public class BAMNN {
         System.out.println("\nWeights transposition of Neural network: ");
         weight.transpose().output();
 
-        int[][] w = weight.getMatrix();
+        double[][] w = weight.getMatrix();
         Neuron input0 = new Neuron();
         Neuron input1 = new Neuron();
         Neuron input2 = new Neuron();
@@ -157,7 +157,7 @@ public class BAMNN {
         // train other elements
         Train train = new BAMTraining();
         Matrix inputs =
-                new Matrix(new int[][] { {1, 1, -1, -1, 1, 1, 1, 0, 0, -1}, {1, 1, -1, -1, 1, 1, -1, 0, 0, -1}, {1, -1, 1, -1, 1, 1, 1, 0, 1, -1},
+                new Matrix(new double[][] { {1, 1, -1, -1, 1, 1, 1, 0, 0, -1}, {1, 1, -1, -1, 1, 1, -1, 0, 0, -1}, {1, -1, 1, -1, 1, 1, 1, 0, 1, -1},
                         {1, -1, 1, -1, 1, 1, -1, 0, 1, -1},
                         {1, 1, -1, -1, 1, -1, 1, 0, -1, 1},
                         {1, 1, -1, -1, -1, -1, -1, 0, 1, 1}});

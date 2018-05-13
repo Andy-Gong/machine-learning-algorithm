@@ -3,32 +3,32 @@ package commons;
 import java.util.Arrays;
 
 public class Matrix {
-    private int[][] matrix;
+    private double[][] matrix;
 
     public Matrix(int n) {
-        matrix = new int[n][n];
+        matrix = new double[n][n];
     }
 
     public Matrix(int n, int m) {
-        matrix = new int[n][m];
+        matrix = new double[n][m];
     }
 
-    public Matrix(int[] input) {
-        matrix = new int[input.length][1];
+    public Matrix(double[] input) {
+        matrix = new double[input.length][1];
         for (int i = 0; i < input.length; i++) {
             matrix[i][0] = input[i];
         }
     }
 
-    public Matrix(int[][] input) {
+    public Matrix(double[][] input) {
         matrix = input;
     }
 
-    public int[][] getMatrix() {
+    public double[][] getMatrix() {
         return matrix;
     }
 
-    public void setValue(int i, int j, int value) {
+    public void setValue(int i, int j, double value) {
         matrix[i][j] = value;
     }
 
@@ -67,7 +67,7 @@ public class Matrix {
         return result;
     }
 
-    public Matrix multiply(int value) {
+    public Matrix multiply(double value) {
         Matrix result = new Matrix(this.matrix.length, this.matrix[0].length);
         for (int i = 0; i < this.matrix.length; i++) {
             for (int j = 0; j < this.matrix[0].length; j++) {
@@ -95,6 +95,14 @@ public class Matrix {
             }
         }
         return result;
+    }
+
+    public void clear() {
+        for (int i = 0; i < this.matrix.length; i++) {
+            for (int j = 0; j < this.matrix[0].length; j++) {
+                this.matrix[i][j] = 0;
+            }
+        }
     }
 
     @Override

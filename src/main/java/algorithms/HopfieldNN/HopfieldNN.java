@@ -20,12 +20,12 @@ public class HopfieldNN {
     // wij, the weights of i and j node.
     public static void main(String[] args) {
         // training weights of network, stable elements are two, [1,1,1,1] and [-1,-1,-1,-1]
-        Matrix y1 = new Matrix(new int[] {1, 1, 1, 1});
-        Matrix y2 = new Matrix(new int[] {-1, -1, -1, -1});
+        Matrix y1 = new Matrix(new double[] {1, 1, 1, 1});
+        Matrix y2 = new Matrix(new double[] {-1, -1, -1, -1});
         // calculate weights of network
         Matrix identity = Matrix.getIdentityMetrix(4);
         Matrix weight = ((y1.multiply(y1.transpose())).add(y2.multiply(y2.transpose()))).sub(identity.multiply(2));
-        int[][] w = weight.getMatrix();
+        double[][] w = weight.getMatrix();
         Neuron input0 = new Neuron();
         Neuron input1 = new Neuron();
         Neuron input2 = new Neuron();
@@ -78,7 +78,7 @@ public class HopfieldNN {
 
         // train other elements
         Train train = new HopfieldTraining();
-        Matrix inputs = new Matrix(new int[][] { {-1, -1, -1, -0}, {1, 1, 1, -0}, {1, 1, -1, 1}, {-1, -0, -1, -1}, {-1, -1, 1, 1}});
+        Matrix inputs = new Matrix(new double[][] { {-1, -1, -1, -0}, {1, 1, 1, -0}, {1, 1, -1, 1}, {-1, -0, -1, -1}, {-1, -1, 1, 1}});
         Matrix output = train.train(network, inputs, null);
         output.output();
     }

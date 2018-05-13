@@ -8,12 +8,20 @@ public class NeuralNetwork {
     private List<Layer> hidden;
     private Layer output;
     private double rateOfEvalution;
+    private double rateOfForget;
+    private double threshold;
 
     public NeuralNetwork(Layer input, List<Layer> hidden, Layer output, double rateOfEvalution) {
         this.input = input;
         this.hidden = hidden;
         this.output = output;
         this.setRateOfEvalution(rateOfEvalution);
+    }
+
+    public NeuralNetwork(Layer input, List<Layer> hidden, Layer output, double rateOfEvalution, double rateOfForget, double threshold) {
+        this(input, hidden, output, rateOfEvalution);
+        this.rateOfForget = rateOfForget;
+        this.setThreshold(threshold);
     }
 
     public List<Layer> getHidden() {
@@ -46,5 +54,21 @@ public class NeuralNetwork {
 
     public void setRateOfEvalution(double rateOfEvalution) {
         this.rateOfEvalution = rateOfEvalution;
+    }
+
+    public double getRateOfForget() {
+        return rateOfForget;
+    }
+
+    public void setRateOfForget(double rateOfForget) {
+        this.rateOfForget = rateOfForget;
+    }
+
+    public double getThreshold() {
+        return threshold;
+    }
+
+    public void setThreshold(double threshold) {
+        this.threshold = threshold;
     }
 }
