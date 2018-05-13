@@ -7,9 +7,27 @@ Hebbian theory is a theory in neuroscience that proposes an explanation for the 
 
 #### Algorithm
 
-          ∆w_ij(p)=αx_i(p)y_j(p) - ϕw_ij(p)y_j, and α is rate of learning, ϕ is rate of forget
+##### learning algorithm
+
+          ∆w_ij(p)=αx_i(p)y_j(p) - ϕw_ij(p)y_j, 
+                    and α is rate of learning, ϕ is rate of forget
           
           w_ij(p+1)=w_ij(p)+∆w_ij(p)
+
+##### learning steps
+
+1. Choose inputs, and initial weights and α and ϕ, 
+2. Calculate output,
+```
+          y_j (p)=∑_(i=1)^n▒(w_ij*x_i)
+```
+3. Learning or adjust weights.
+       ```∆w_ij(p)=αx_i(p)y_j(p) - ϕw_ij(p)y_j, 
+                    and α is rate of learning, ϕ is rate of forget
+          
+          w_ij(p+1)=w_ij(p)+∆w_ij(p)
+          ```
+4. Iterator, repeat step2 to step4 until weight is stable.
 
 #### Example
 
